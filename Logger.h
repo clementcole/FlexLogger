@@ -20,18 +20,6 @@ public:
 	void LOG(const std::string& theMessage);
 	void CLOSE();
 
-	//Utility function Convert from CString to std::string 
-	static std::string CStringToStdString(const CString& cstr, bool isForUnicodeBuilds = false)
-	{
-		#ifdef UNICODE
-				//Unicode build 
-				return std::string(CT2A(cstr.GetString())); 
-
-		#else 
-				//ANSI build 
-				return std::string(cstr.GetString());
-		#endif
-	}
 
 	//Delete copy constructor and assignment operator to prevent copies
 	Logger(const Logger&) = delete; //Copy Constructor
